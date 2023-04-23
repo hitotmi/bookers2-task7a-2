@@ -10,7 +10,7 @@
     <div class='col-md-8 offset-md-1'>
   		<h2>Book detail</h2>
   		<table class='table'>
-  		  <tr>
+  		  <tr id="book_<%= @book.id %>">
           <td><%= link_to(@book.user) do %>
             <%= image_tag @book.user.get_profile_image, size:"100x100" %><br>
             <%= @book.user.name %>
@@ -18,8 +18,7 @@
           </td>
           <td><%= link_to @book.title, @book %></td>
           <td><%= @book.body %></td>
-          <!--いいね機能-->
-           <td id="favorite_buttons_<%= @book.id %>">
+           <td class="favorite-btn">
 　　　      <%= render "favorites/favorite", book: @book %>
           </td>
           <td>
@@ -37,10 +36,10 @@
           </td>
         </tr>
       </table>
-    
+
       <div id="comment-area">
         <%= render "book_comments/comment",book: @book,book_comment: @book_comment %></div>
-      </div> 
+      </div>
     </div>
   </div>
 </div>
